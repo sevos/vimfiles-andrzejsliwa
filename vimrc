@@ -276,6 +276,83 @@ else
     endif
 endif
 
+"remove trailing spaces
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+"shortcut for edit vimrc
+command! -bar -nargs=* Vimrc e ~/.vim/vimrc
+command! -bar -nargs=* Reload :source $MYVIMRC
+
+" Open todo using taskpaper"
+" TODO / FIXME add different taskapaper locations or/and different todo files
+" (work/home/etc)"
+function! s:OpenTodo(toFull)
+  if (a:toFull == 1)
+    sp | e ~/Dropbox/todo.taskpaper
+  else
+    e ~/Dropbox/todo.taskpaper
+  endif
+endfunction
+"shortcut for edit todo
+command! -bar -nargs=* Todo call s:OpenTodo(1)
+command! -bar -nargs=* Todof call s:OpenTodo(0)
+
+"grow to maximum horizontal width on entering fullscreeN mode
+set fuopt=maxhorz,maxvert
+" toggle fullscreen mod
+map <D-CR> :set invfu<CR>
+
+" Correct some spelling mistakes
+ia teh the
+ia htis this
+ia tihs this
+ia eariler earlier
+ia funciton function
+ia funtion function
+ia fucntion function
+ia retunr return
+ia reutrn return
+ia foreahc foreach
+ia !+ !=
+ca eariler earlier
+ca !+ !=
+
+"enable spelling
+set spelllang=en
+
+command! Bclose call <SID>BufcloseCloseIt()
+function! <SID>BufcloseCloseIt()
+   let l:currentBufNum = bufnr("%")
+   let l:alternateBufNum = bufnr("#")
+
+   if buflisted(l:alternateBufNum)
+     buffer #
+   else
+     bnext
+   endif
+
+   if bufnr("%") == l:currentBufNum
+     new
+   endif
+
+   if buflisted(l:currentBufNum)
+     execute("bdelete! ".l:currentBufNum)
+   endif
+endfunction
+
+" Close the current buffer
+map <leader>bd :Bclose<cr>
+
+" Close all the buffers
+map <leader>ba :1,300 bd!<cr>
+
 " PeepOpen uses <Leader>p as well so you will need to redefine it so something
 " else in your ~/.vimrc file, such as:
 " nmap <silent> <Leader>q <Plug>PeepOpen
@@ -314,6 +391,12 @@ map <A-k> :cprevious<CR>
 
 "key mapping for Gundo
 nnoremap <F4> :GundoToggle<CR>
+
+"rebar shortcuts
+nnoremap <Leader>rc :Rebar compile<Enter>
+nnoremap <Leader>rt :Rebar eunit<Enter>
+nnoremap <Leader>rl :Rebar clean<Enter>
+nnoremap <Leader>rd :Rebar get-deps<Enter>
 
 "snipmate setup
 try
