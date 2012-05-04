@@ -187,3 +187,6 @@
 [submodule "bundle/dogmatic"]
 	path = bundle/dogmatic
 	url = https://github.com/mrmargolis/dogmatic.vim.git
+[submodule "bundle/taskpaper"]
+	path = bundle/taskpaper
+	url = https://github.com/davidoc/taskpaper.vim.git
