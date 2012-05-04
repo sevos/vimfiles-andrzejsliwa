@@ -27,6 +27,10 @@ set hlsearch    "hilight searches by default
 set number      "add line numbers
 set showbreak=...
 set wrap linebreak nolist
+set colorcolumn=80 "because word-wrap is not cool
+"because I'm using git
+set nobackup
+set noswapfile
 
 "mapping for command key to map navigation thru display lines instead
 "of just numbered lines
@@ -69,6 +73,9 @@ set laststatus=2
 
 "turn off needless toolbar on gvim/mvim
 set guioptions-=T
+"turn off needless scrollbars on gvim/mvim
+set guioptions-=L
+set guioptions-=r
 
 "recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
@@ -227,19 +234,19 @@ if has("gui_running")
     "tell the term has 256 colors
     set t_Co=256
 
-    colorscheme railscasts
+    colorscheme mustang
     set guitablabel=%M%t
     set lines=40
     set columns=115
 
     if has("gui_gnome")
         set term=gnome-256color
-        colorscheme railscasts
+        colorscheme mustang
         set guifont=Monospace\ Bold\ 12
     endif
 
     if has("gui_mac") || has("gui_macvim")
-        set guifont=Menlo:h14
+        set guifont=Monaco:h15
         " key binding for Command-T to behave properly
         " uncomment to replace the Mac Command-T key to Command-T plugin
         "macmenu &File.New\ Tab key=<nop>
@@ -258,13 +265,13 @@ else
     "set railscasts colorscheme when running vim in gnome terminal
     if $COLORTERM == 'gnome-terminal'
         set term=gnome-256color
-        colorscheme railscasts
+        colorscheme mustang
     else
         if $TERM == 'xterm'
             set term=xterm-256color
-            colorscheme railscasts
+            colorscheme mustang
         else
-            colorscheme default
+            colorscheme mustang
         endif
     endif
 endif
