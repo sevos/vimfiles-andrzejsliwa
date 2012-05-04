@@ -184,6 +184,3 @@
 [submodule "bundle/vim-django-support"]
 	path = bundle/vim-django-support
 	url = https://github.com/lambdalisue/vim-django-support.git
-[submodule "bundle/vim-python-virtualenv"]
-	path = bundle/vim-python-virtualenv
-	url = https://github.com/lambdalisue/vim-python-virtualenv.git
