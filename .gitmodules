@@ -175,3 +175,15 @@
 [submodule "bundle/vim-command-t"]
 	path = bundle/vim-command-t
 	url = git://github.com/wincent/Command-T.git
+[submodule "bundle/vimerl"]
+	path = bundle/vimerl
+	url = https://github.com/jimenezrick/vimerl.git
+[submodule "bundle/vim-rebar"]
+	path = bundle/vim-rebar
+	url = https://github.com/mbbx6spp/vim-rebar.git
+[submodule "bundle/vim-django-support"]
+	path = bundle/vim-django-support
+	url = https://github.com/lambdalisue/vim-django-support.git
+[submodule "bundle/vim-python-virtualenv"]
+	path = bundle/vim-python-virtualenv
+	url = https://github.com/lambdalisue/vim-python-virtualenv.git
