@@ -296,9 +296,9 @@ command! -bar -nargs=* Todo call s:OpenTodo(1)
 command! -bar -nargs=* Todof call s:OpenTodo(0)
 
 "grow to maximum horizontal width on entering fullscreeN mode
-set fuopt=maxhorz,maxvert
+" set fuopt=maxhorz,maxvert
 " toggle fullscreen mod
-map <D-CR> :set invfu<CR>
+" map <D-CR> :set invfu<CR>
 
 " Correct some spelling mistakes
 ia teh the
