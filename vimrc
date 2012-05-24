@@ -226,10 +226,6 @@ set ttymouse=xterm2
 "hide buffers when not displayed
 set hidden
 
-"Command-T configuration
-let g:CommandTMaxHeight=10
-let g:CommandTMatchWindowAtTop=1
-
 if has("gui_running")
     "tell the term has 256 colors
     set t_Co=256
@@ -247,11 +243,6 @@ if has("gui_running")
 
     if has("gui_mac") || has("gui_macvim")
         set guifont=Monaco:h15
-        " key binding for Command-T to behave properly
-        " uncomment to replace the Mac Command-T key to Command-T plugin
-        "macmenu &File.New\ Tab key=<nop>
-        "map <D-t> :CommandT<CR>
-        " make Mac's Option key behave as the Meta key
     endif
 
     if has("gui_win32") || has("gui_win32s")
@@ -367,7 +358,7 @@ inoremap <C-L> <C-O>:nohls<CR>
 nnoremap <leader>b :BufExplorer<cr>
 
 "map to CommandT TextMate style finder
-nnoremap <leader>t :CommandT<CR>
+nnoremap <leader>t :CtrlP<CR>
 
 "map Q to something useful
 noremap Q gq
